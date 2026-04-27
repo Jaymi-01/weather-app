@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.jaymi.weatherapp"
     },
     "web": {
       "output": "static",
@@ -50,6 +51,12 @@
         "projectId": "55c1f48a-fa81-4d91-a219-bcf7bc254b67"
       }
     },
-    "owner": "jaymi"
+    "owner": "jaymi",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/55c1f48a-fa81-4d91-a219-bcf7bc254b67"
+    }
   }
 }
