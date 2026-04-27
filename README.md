@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# SkyCast - Lagos Weather & Forecast
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+SkyCast is a modern, high-performance weather application built with React Native and Expo. It provides real-time weather updates and multi-day forecasts with a focus on fluid user experience and elegant animations.
 
-## Get started
+## 📱 App Features & Functionality
 
-1. Install dependencies
+- **Real-time Weather**: Current temperature, humidity, wind speed, and "feels like" conditions.
+- **Dynamic Environments**: The app's background gradient and theme change dynamically based on the current weather condition (Clear, Cloudy, Rainy, etc.).
+- **Location-Based**: Automatically detects your current location to provide local weather data.
+- **Manual Search**: Users can search for any city globally to view its weather.
+- **Extended Forecasts**:
+  - **Hourly**: 24-hour horizontal forecast.
+  - **Daily**: 5-day vertical forecast with high/low temperatures.
+- **Offline Caching**: All weather data is cached locally using AsyncStorage, allowing users to view the last updated weather even without an internet connection.
+- **Robust Error Handling**: Friendly error states for location timeouts, API failures, or network issues, including a quick fallback to Lagos for Nigerian users.
 
-   ```bash
-   npm install
-   ```
+## 🌐 APIs Used
 
-2. Start the app
+- **[OpenWeatherMap API](https://openweathermap.org/api)**: Used for fetching current weather and 5-day/3-hour forecast data.
+- **[Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)**: Used for accessing device GPS coordinates.
 
-   ```bash
-   npx expo start
-   ```
+## ✨ Animation Highlights
 
-In the output, you'll find options to open the app in a
+The app utilizes **React Native Reanimated 3** for high-performance, 60fps animations:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1.  **Staggered List Entrances**:
+    - The hourly forecast items slide in from the right with a staggered delay.
+    - The daily forecast rows glide up from the bottom sequentially, creating a fluid "building" effect as the screen loads.
+2.  **Pulsing Loading Skeletons**:
+    - Custom skeleton loaders with a smooth opacity pulsing animation provide visual feedback during data fetching.
+3.  **Layout Transitions**:
+    - The main weather card uses a `FadeInUp` animation to enter the screen gracefully once the data is ready.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠 Libraries & Dependencies
 
-## Get a fresh project
+- **Framework**: Expo SDK 54 (React Native)
+- **Navigation**: Expo Router (File-based routing)
+- **Animations**: `react-native-reanimated`
+- **Icons**: `phosphor-react-native` (SVG-based)
+- **Styling**: `expo-linear-gradient` for dynamic backgrounds
+- **Data Fetching**: `axios`
+- **Storage**: `@react-native-async-storage/async-storage` for offline persistence
 
-When you're ready, run:
+## 🏗 Architecture
 
-```bash
-npm run reset-project
-```
+The app follows a modular and clean architecture:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **/app**: Expo Router entry points and layouts.
+- **/src/api**: Service layer for API requests and data transformation logic.
+- **/src/hooks**: Custom React Hooks for encapsulating Location and Weather logic (`useWeather`, `useLocation`).
+- **/src/components**: Atomic UI components (WeatherIcon, SearchBar, ForecastList).
+- **/src/utils**: Utility functions for data persistence (Storage).
+- **/src/types**: TypeScript interfaces for strict type safety across the data layer.
 
-## Learn more
+## 📸 Screenshots
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+<p align="center">
+  <img src="https://res.cloudinary.com/dquzcqxcy/image/upload/v1777287319/kmni291te1jdgce177vg.png" width="200" />
+  <img src="https://res.cloudinary.com/dquzcqxcy/image/upload/v1777287329/metqy8qztawlxix8lxjh.png" width="200" />
+  <img src="https://res.cloudinary.com/dquzcqxcy/image/upload/v1777287331/u92yz8yk0lxkncf1ixw8.png" width="200" />
+  <img src="https://res.cloudinary.com/dquzcqxcy/image/upload/v1777287331/vzywdvwgebocbkwzerjk.png" width="200" />
+</p>
